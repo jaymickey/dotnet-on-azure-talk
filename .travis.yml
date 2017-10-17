@@ -4,7 +4,8 @@ mono: none
 dotnet: 2.0.0
 dist: trusty
 script:
-- dotnet build ./src/ToDo.Web/
+- dotnet restore $TRAVIS_SOLUTION
+- dotnet build $TRAVIS_SOLUTION
 - dotnet test ./src/ToDo.Web.Test/
 branches:
   only:
@@ -14,4 +15,5 @@ deploy:
   username: "$AZURE_WA_USERNAME"
   password: "$AZURE_WA_PASSWORD"
   site: "$AZURE_WA_SITE"
+  skip_cleanup: true
   verbose: true

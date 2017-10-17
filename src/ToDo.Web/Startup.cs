@@ -48,6 +48,9 @@ namespace ToDo.Web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            var context = app.ApplicationServices.GetRequiredService<TaskDbContext>();
+            context.Database.Migrate();
         }
     }
 }
