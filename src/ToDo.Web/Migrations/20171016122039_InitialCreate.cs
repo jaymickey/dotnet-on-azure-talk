@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
-using System.Collections.Generic;
 
-namespace mscloudmeetupoct2017.Migrations
+namespace ToDo.Web.Migrations
 {
     public partial class InitialCreate : Migration
     {

@@ -6,6 +6,7 @@ dist: trusty
 script:
 - dotnet restore ./src/ToDo.Web
 - dotnet build ./src/ToDo.Web/
+- dotnet test ./src/Todo.Web.Tests/
 branches:
   only:
   - master

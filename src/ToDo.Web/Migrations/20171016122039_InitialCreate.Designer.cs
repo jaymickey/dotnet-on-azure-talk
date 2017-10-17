@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 using ToDo.Web.Data;
 
-namespace mscloudmeetupoct2017.Migrations
+namespace ToDo.Web.Migrations
 {
     [DbContext(typeof(TaskDbContext))]
     [Migration("20171016122039_InitialCreate")]

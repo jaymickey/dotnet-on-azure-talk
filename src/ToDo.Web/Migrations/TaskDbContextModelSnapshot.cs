@@ -2,13 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 using ToDo.Web.Data;
 
-namespace mscloudmeetupoct2017.Migrations
+namespace ToDo.Web.Migrations
 {
     [DbContext(typeof(TaskDbContext))]
     partial class TaskDbContextModelSnapshot : ModelSnapshot
