@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../css/reveal.css">
+        <link rel="stylesheet" href="../../css/theme/moon.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+                    <textarea data-template>
+                        # ASP.NET Core 2.0
+                        ### CI/CD with GitHub, Travis CI, & Azure Web Apps
+                        #### Josh Michielsen - DevOps Engineer @ Bankwest
+                    </textarea>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # .NET Core 2.0
+                            - Released Aug 15th 2017
+                            - Implements .NET Standard 2.0
+                            - Open Source: https://github.com/dotnet/core
+                            - Multiplatform
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # ASP.NET Core 2.0
+                            - Released Aug 15th 2017
+                            - Implements .NET Standard 2.0
+                            - Open Source: https://github.com/aspnet/home
+                            - Can target .NET Core 2 or .NET Framework 4.6.1+
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Continuous Integration (CI)
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            > Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early.
+
+                            > By integrating regularly, you can detect errors quickly, and locate them more easily.
+
+                            \- via *ThoughtWorks*: https://www.thoughtworks.com/continuous-integration
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ![Travis CI logo](img/TravisCI-Full-Color-light.png) <!-- .element class="plain" style="background: none;" -->
+                            - GitHub specific CI service
+                            - Free for public repos (https://travis-ci.org)
+                            - Paid for private repos (https://travis-ci.com)
+                            - Cofiguration-as-Code: `.travis.yml` file
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            **`.travis.yml` file**
+                            ```yml
+                            language: csharp
+                            solution: ./path/to/.sln
+                            mono: none
+                            dotnet: 2.0.0
+                            dist: trusty
+                            script:
+                            - dotnet restore $TRAVIS_SOLUTION
+                            - dotnet build $TRAVIS_SOLUTION
+                            - dotnet test ./path/to/.sln
+                            branches:
+                                only:
+                                - master
+                            deploy:
+                            provider: azure_web_apps
+                            username: "$AZURE_WA_USERNAME"
+                            password: "$AZURE_WA_PASSWORD"
+                            site: "$AZURE_WA_SITE"
+                            ```
+                        </textarea>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Azure App Service
+                            - PaaS
+                            - "Fully Managed Platform"
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            # Azure Web App
+                            - Cost of entry: free (F1)
+                            - Cost increases as you scale
+
+                            # SQLaaS
+                            - Managed SQL Server and Database
+                            - Easily scale - Database Transaction Units ("DTU")
+                            - Cost of entry: free (5 DTU)
+                        </textarea>
+                    </section>
+                </section>
+
+                <section data-markdown data-background="img/amazed.gif">
+                    <textarea data-template>
+                        # Demo Time
+                    </textarea>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Code:
+
+                            https://github.com/jaymickey/ms-cloud-meetup-oct2017
+
+                            ![GitHub](img/GitHub-Mark-Light-120px-plus.png) <!-- .element class="plain" style="background: none;" -->
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Bankwest id Hiring!
+                            - Looking for DevOps Engineers with experience in:
+                              - SDLC
+                              - CI/CD
+                              - Cloud (AWS/Azure)
+                            - Undergoing org-wide Agile transformation
+                            - Spotify model (Squads, Chapters, Tribes, and Guilds)
+
+                            Speak to me afterwards, or contact me:
+
+                            _josh.michielen@bankwest.com.au_<br />_https://linkedin.com/in/jmichielsen_
+                        </textarea>
+                    </section>
+                    <section data-markdown>
+                        <textarea data-template>
+                            ## Questions?
+                        </textarea>
+                    </section>
+                </section>
+
+
+            </div>
+        </div>
+        <script src="../../lib/js/head.min.js"></script>
+        <script src="../../js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+                width: '100%',
+                dependencies: [
+                    // Interpret Markdown in <section> elements
+                    { src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+                ],
+                controls: false,
+                progress: true,
+                history: true,
+                center: true
+            });
+        </script>
+    </body>
+</html>
